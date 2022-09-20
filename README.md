@@ -1,3 +1,3 @@
-## Solana Hub
+## Solana Starter Kit
 
 More details to come!
