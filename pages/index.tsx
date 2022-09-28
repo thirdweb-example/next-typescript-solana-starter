@@ -1,13 +1,18 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
 // Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 const Home: NextPage = () => {
-  const router = useRouter();
+  // Here's how to get the thirdweb SDK instance
+  // const sdk = useSDK();
+  // Here's how to get a nft collection
+  // const { data: program } = useProgram(
+  //   your_nft_collection_address,
+  //   "nft-collection"
+  // );
 
   return (
     <>
@@ -21,7 +26,7 @@ const Home: NextPage = () => {
           Explore what you can do with thirdweb&rsquo;s brand new{" "}
           <b>
             <a
-              href="https://github.com/thirdweb-dev/js/tree/main/packages/solana"
+              href="https://portal.thirdweb.com/solana"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.lightPurple}
