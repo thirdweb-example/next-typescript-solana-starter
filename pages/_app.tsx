@@ -9,7 +9,7 @@ const network: Network = "mainnet-beta";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThirdwebProvider endpoint={network}>
+    <ThirdwebProvider network={network}>
       <WalletModalProvider>
         <Component {...pageProps} />
       </WalletModalProvider>
