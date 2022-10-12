@@ -1,5 +1,6 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import type { NextPage } from "next";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 // Default styles that can be overridden by your app
@@ -18,8 +19,20 @@ const Home: NextPage = () => {
     <>
       <div className={styles.container}>
         <div className={styles.iconContainer}>
-          <img src={"/thirdweb.svg"} className={styles.icon} />
-          <img src={"/sol.png"} className={styles.icon} />
+          <Image
+            src="/thirdweb.svg"
+            height={75}
+            width={115}
+            objectFit="contain"
+            alt="thirdweb"
+          />
+          <Image
+            width={75}
+            height={75}
+            src="/sol.png"
+            className={styles.icon}
+            alt="sol"
+          />
         </div>
         <h1 className={styles.h1}>Solana, meet thirdweb 👋</h1>
         <p className={styles.explain}>
