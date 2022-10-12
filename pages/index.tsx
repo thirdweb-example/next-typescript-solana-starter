@@ -45,10 +45,17 @@ const Home: NextPage = () => {
         <WalletMultiButton />
         {walletAddress ? (
           <div>
-            <p className={styles.explain}>Connected as</p>
-            <p className={styles.lightPurple}>{walletAddress}</p>
             <p className={styles.explain}>
-              Your Balance: {balance?.displayValue} SOL
+              Connected as{" "}
+              <span className={styles.lightPurple}>{walletAddress}</span>
+            </p>
+
+            <p className={styles.explain}>
+              Your Balance:{" "}
+              <span className={styles.lightPurple}>
+                {balance?.displayValue}
+              </span>{" "}
+              SOL
             </p>
           </div>
         ) : null}
