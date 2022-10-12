@@ -1,4 +1,5 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useAddress, useBalance } from "@thirdweb-dev/react/solana";
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 
@@ -9,10 +10,14 @@ const Home: NextPage = () => {
   // Here's how to get the thirdweb SDK instance
   // const sdk = useSDK();
   // Here's how to get a nft collection
-  // const { data: program } = useProgram(
+  // const { program } = useProgram(
   //   your_nft_collection_address,
   //   "nft-collection"
   // );
+  // Here's how to get the currently connected wallet address
+  const walletAddress = useAddress();
+  // And how to get the balance of the connected wallet
+  const { data: balance } = useBalance();
 
   return (
     <>
@@ -38,6 +43,15 @@ const Home: NextPage = () => {
         </p>
 
         <WalletMultiButton />
+        {walletAddress ? (
+          <div>
+            <p className={styles.explain}>Connected as</p>
+            <p className={styles.lightPurple}>{walletAddress}</p>
+            <p className={styles.explain}>
+              Your Balance: {balance?.displayValue} SOL
+            </p>
+          </div>
+        ) : null}
       </div>
     </>
   );
