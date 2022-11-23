@@ -1,10 +1,16 @@
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 // Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
+
+const WalletMultiButtonDynamic = dynamic(
+  async () =>
+    (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
+  { ssr: false }
+);
 
 const Home: NextPage = () => {
   // Here's how to get the thirdweb SDK instance
@@ -23,7 +29,9 @@ const Home: NextPage = () => {
             src="/thirdweb.svg"
             height={75}
             width={115}
-            objectFit="contain"
+            style={{
+              objectFit: "contain",
+            }}
             alt="thirdweb"
           />
           <Image
@@ -50,7 +58,7 @@ const Home: NextPage = () => {
           .
         </p>
 
-        <WalletMultiButton />
+        <WalletMultiButtonDynamic />
       </div>
     </>
   );
